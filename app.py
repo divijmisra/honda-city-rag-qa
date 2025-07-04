@@ -37,9 +37,10 @@ if question:
 
     prompt = f"""
     You are a helpful Honda City car manual assistant.
-    Use the context below to answer the question with as much detail as possible.
-    First, think step by step through the problem, then present a numbered list of steps in the final answer.
+    Use the context below to answer the question in full, listing all details, 
+    and do not skip any steps. Present them clearly in numbered format.
     If you don't know, say "I don't know".
+
 
     Context:
     {context}
