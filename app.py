@@ -52,4 +52,8 @@ if question:
     outputs = generator_model.generate(**inputs, max_new_tokens=128)
     answer = generator_tokenizer.decode(outputs[0], skip_special_tokens=True)
 
-    st.markdown(f"**Answer:** {answer}")
+    with st.expander("Show retrieval context"):
+     st.write(context)
+
+     st.markdown(f"**Answer:** {answer}")
+
