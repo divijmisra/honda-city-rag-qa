@@ -37,8 +37,9 @@ if question:
 
     prompt = f"""
     You are a helpful Honda City car manual assistant.
-    Use the context below to answer the question in detailed, numbered steps if applicable.
-    If you don't know, just say "I don't know".
+    Use the context below to answer the question clearly and comprehensively.
+    If there are multiple steps, list them in detail, one by one, in numbered form.
+I   f you don't know the answer, say "I don't know".
 
     Context:
     {context}
