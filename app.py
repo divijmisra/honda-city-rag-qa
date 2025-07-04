@@ -34,7 +34,20 @@ if question:
 
     # generate
     context = " ".join(top_chunks)
-    prompt = f"Answer the question based on the context.\n\nContext:\n{context}\n\nQuestion: {question}\nAnswer:"
+    prompt = f"""
+    You are a helpful Honda City car manual assistant.
+    Answer in clear and complete sentences based on the context below.
+    If the answer is not found in the context, say "I don't know".
+
+    Context:
+    {context}
+
+    Question:
+    {question}
+
+    Answer:
+    """
+
     inputs = generator_tokenizer(prompt, return_tensors="pt", truncation=True)
     outputs = generator_model.generate(**inputs, max_new_tokens=128)
     answer = generator_tokenizer.decode(outputs[0], skip_special_tokens=True)
