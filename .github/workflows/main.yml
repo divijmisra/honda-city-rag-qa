@@ -1,0 +1,26 @@
+name: Streamlit CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Lint check
+        run: |
+          echo "You can add flake8 or black here if needed"
+      - name: Streamlit health check
+        run: |
+          python -c "import streamlit"
