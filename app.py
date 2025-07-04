@@ -37,7 +37,7 @@ if question:
 
     prompt = f"""
     You are a helpful Honda City car manual assistant.
-    Use the context below to answer the question clearly.
+    Use the context below to answer the question in detailed, numbered steps if applicable.
     If you don't know, just say "I don't know".
 
     Context:
