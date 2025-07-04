@@ -51,7 +51,14 @@ if question:
     """
 
     inputs = generator_tokenizer(prompt, return_tensors="pt", truncation=True)
-    outputs = generator_model.generate(**inputs, max_new_tokens=256)
+    outputs = generator_model.generate(
+    **inputs,
+    max_new_tokens=256,
+    do_sample=True,
+    top_k=50,
+    top_p=0.9
+)
+
 
     answer = generator_tokenizer.decode(outputs[0], skip_special_tokens=True)
 
