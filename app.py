@@ -33,7 +33,8 @@ if question:
     top_chunks = [chunks[i] for i in indices[0]]
 
     # generate
-    context = top_chunks[0]
+    context = " ".join(top_chunks[:2])
+
 
     prompt = f"""
     You are a helpful Honda City car manual assistant.
