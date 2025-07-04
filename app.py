@@ -33,11 +33,12 @@ if question:
     top_chunks = [chunks[i] for i in indices[0]]
 
     # generate
-    context = " ".join(top_chunks)
+    context = top_chunks[0]
+
     prompt = f"""
     You are a helpful Honda City car manual assistant.
-    Answer in clear and complete sentences based on the context below.
-    If the answer is not found in the context, say "I don't know".
+    Use the context below to answer the question clearly.
+    If you don't know, just say "I don't know".
 
     Context:
     {context}
@@ -49,7 +50,8 @@ if question:
     """
 
     inputs = generator_tokenizer(prompt, return_tensors="pt", truncation=True)
-    outputs = generator_model.generate(**inputs, max_new_tokens=128)
+    outputs = generator_model.generate(**inputs, max_new_tokens=256)
+
     answer = generator_tokenizer.decode(outputs[0], skip_special_tokens=True)
 
     with st.expander("Show retrieval context"):
